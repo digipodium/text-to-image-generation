@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block css %}
+<style>
+    .glass {
+        background: rgba(255, 255, 255, 0.25);
+        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border-radius: 10px;
+        border: 1px solid rgba(255, 255, 255, 0.18);
+    }
+
+    main {
+        background: linear-gradient(90deg, #00C9FF 0%, #92FE9D 100%);
+        min-height: 100vh;
+    }
+</style>
+{% endblock %}
+{% block content %}
+<div class="container">
+    <div class="row py-5">
+        <div class="col-md-12 mx-auto">
+            <form action="/text" method="post">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="mb-3">
+                            <label for="text" class="form-label">Enter a sentence for generating an image</label>
+                            <textarea class="form-control" name="text" id="text" rows="10" required
+                                placeholder="a fisherman is fishing in the sea in the morning"></textarea>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="d-grid gap-2">
+                            <button class="btn btn-danger">Generate</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="row">
+        {% for f in files %}
+        <div class="col-4">
+            <div class="card">
+                <img src="/static/generated/{{f}}" alt="" class="card-img">
+            </div>
+        </div>
+
+        {% endfor %}
+
+    </div>
+</div>
+{% endblock %}
+{% block js %}{% endblock %}

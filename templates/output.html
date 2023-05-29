@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block css %}
+<style>
+    .glass {
+        background: rgba(255, 255, 255, 0.25);
+        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border-radius: 10px;
+        border: 1px solid rgba(255, 255, 255, 0.18);
+    }
+
+    main {
+        background: linear-gradient(90deg, #00C9FF 0%, #92FE9D 100%);
+        min-height: 100vh;
+    }
+</style>
+{% endblock %}
+{% block content %}
+<div class="container">
+    <div class="row py-5">
+        <div class="col-md-6 mx-auto">
+            <div class="card bg-dark text-white">
+                <img class="card-img" src="/{{path}}" alt="Title">
+                <div class="card-footer">
+                    <p class="card-text text-center">{{text}}</p>
+                    <div class="d-grid gap-2">
+                      <a href="/" class="btn btn-primary">Generate new</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block js %}{% endblock %}
